@@ -12,7 +12,7 @@ public class Collison2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player1"))
         {
-            ScoreManager.instance.AddPoint();
+            Managers.Player.ChangeScoreP1(1);
             playerOneScore += 1;
             Debug.Log("Player one has a score of: " + playerOneScore);
         }
