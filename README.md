@@ -7,3 +7,7 @@ The iterations I made were from playing with my younger brother and my friend. W
  Unity 6 Assignment - 02/25/2024
 
  For this assignment, I added GUI for the two player scores as well as two scenes that play if one of the characters get to 5 points.
+
+Unity 7 Assignment - 03/03/2024
+
+For this assignment, I added in a tree with physics that the players can push in. I also added the a game state manager and changed my scoring to go through the manager and not the previous way. I added collectible items and an inventory system as well.
