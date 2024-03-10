@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour, IGameManager
     public Text scoreText;
     public Text scoreTextP2;
     public ManagerStatus status { get; private set; }
+    public static PlayerManager instance;
 
     public int score { get; private set; }
     public int maxScore { get; private set; }
@@ -16,6 +17,10 @@ public class PlayerManager : MonoBehaviour, IGameManager
     public int scoreP2 { get; private set; }
     public int maxScoreP2 { get; private set; }
 
+    private void Awake()
+    {
+        instance = this;
+    }
     public void Startup()
     {
         Debug.Log("Player manager starting...");
@@ -31,8 +36,10 @@ public class PlayerManager : MonoBehaviour, IGameManager
 
     public void ChangeScoreP1(int value)
     {
+
         score += value;
         scoreText.text = "P1 Score: " + score.ToString();
+
         if (score >= maxScore)
         {
             SceneManager.LoadScene("P1WinScene");

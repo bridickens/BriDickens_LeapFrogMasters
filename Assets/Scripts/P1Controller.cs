@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+ 
 [RequireComponent(typeof(CharacterController))]
-
-public class P2Controller : MonoBehaviour
+public class P1Controller : MonoBehaviour
 {
     public float speed = 3;
     public float rotationSpeed = 90;
@@ -24,20 +23,20 @@ public class P2Controller : MonoBehaviour
     {
         float vInput = 0;
         float hInput = 0;
-   
-        if (Input.GetKey(KeyCode.J))
+
+        if (Input.GetKey(KeyCode.A))
         {
             hInput = -1;
             //transform.Rotate(0, -1, 0);
         }
 
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetKey(KeyCode.D))
         {
             hInput = 1;
             //transform.Rotate(0, 1, 0);
         }
 
-        if (Input.GetKey(KeyCode.I))
+        if (Input.GetKey(KeyCode.W))
         {
             vInput = 1;
             //transform.Translate(Vector3.forward * Time.deltaTime * speed);
@@ -48,7 +47,7 @@ public class P2Controller : MonoBehaviour
             moveVelocity = transform.forward * speed * vInput;
             turnVelocity = transform.up * rotationSpeed * hInput;
 
-            if (Input.GetKey(KeyCode.K))
+            if (Input.GetKey(KeyCode.S))
             {
                 moveVelocity.y = jumpSpeed;
             }
@@ -58,5 +57,9 @@ public class P2Controller : MonoBehaviour
         moveVelocity.y += gravity * Time.deltaTime;
         characterController.Move(moveVelocity * Time.deltaTime);
         transform.Rotate(turnVelocity * Time.deltaTime);
+    }
+    public void NewSpeedIncrease(float newSpeed)
+    {
+        speed += newSpeed;
     }
 }
